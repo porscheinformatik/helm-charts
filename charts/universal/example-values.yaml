@@ -1,0 +1,11 @@
+configmaps:
+  test:
+    data:
+      key1: "value1"
+      key2: "1"
+    metadata:
+      name: "test-configmap"
+      labels:
+        test-label: "test-value"
+      annotations:
+        test-annotation: "test-value"

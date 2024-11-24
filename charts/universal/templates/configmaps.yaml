@@ -1,0 +1,8 @@
+{{- range $name, $configmap:= .Values.configmaps }}
+{{- include "universal.object" (dict "kind" "ConfigMap" "name" $name "metadata" ($configmap.metadata | default (dict)) "context" $) }}
+data:
+  {{- range $key, $value:= $configmap.data}}
+  {{ $key }}: |- {{ $value | nindent 4 }}
+  {{- end }}
+---
+{{- end }}{{- /* end of range */}}
